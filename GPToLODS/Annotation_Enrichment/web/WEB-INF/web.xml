@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>InformationExtraction</servlet-name>
+        <servlet-class>gr.forth.ics.isl.servlet.InformationExtraction</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResponseToFacts</servlet-name>
+        <servlet-class>gr.forth.ics.isl.servlet.ResponseToFacts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FactChecking</servlet-name>
+        <servlet-class>gr.forth.ics.isl.servlet.FactChecking</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InformationExtraction</servlet-name>
+        <url-pattern>/InformationExtraction</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Demo</servlet-name>
+        <servlet-class>gr.forth.ics.isl.servlet.Demo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Demo</servlet-name>
+        <url-pattern>/Annot_Enrichment</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RestAPI</servlet-name>
+        <servlet-class>gr.forth.ics.isl.servlet.RestAPI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RestAPI</servlet-name>
+        <url-pattern>/rest-api</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LODsyndesisIE REST Service</servlet-name>
+        <url-pattern>/rest-api/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResponseToFacts</servlet-name>
+        <url-pattern>/ResponseToFacts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FactChecking</servlet-name>
+        <url-pattern>/FactChecking</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <servlet>
+        <servlet-name>LODsyndesisIE REST Service</servlet-name>
+        <servlet-class>
+  com.sun.jersey.spi.container.servlet.ServletContainer
+</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>gr.forth.ics.isl.lodsyndesisie.restApi</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+</web-app>
